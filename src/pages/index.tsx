@@ -2,8 +2,11 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 
 import GithubSvg from '../assets/GithubSvg';
+import useTelegramInitData from '../hooks/useTelegramInitData';
 
 const Home: NextPage = () => {
+  const data = useTelegramInitData();
+  console.log(data);
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-telegram-white">
       <Head>
@@ -16,6 +19,8 @@ const Home: NextPage = () => {
           This is a starter template using Next.js and Tailwind CSS for Telegram&apos;s Web Apps.
         </span>
       </main>
+      
+       <pre>{JSON.stringify(data, null, 2)}</pre>
 
       <footer className="flex h-20 w-full items-center justify-center border-t border-t-telegram-black">
         <a
